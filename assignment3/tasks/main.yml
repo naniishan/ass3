@@ -1,0 +1,12 @@
+---
+    - name: install nginx
+      apt: name=nginx update_cache=yes state=present force=yes
+
+    - name: copy the index.html file
+      template: src=ishan.j2 dest=/var/www/html/index.html owner=root group=root
+
+    - name: restart the nginx service
+      service: name=nginx state=restarted
+
+
+# tasks file for assignment3
